@@ -18,7 +18,7 @@ public class Distillery {
     @Column(name = "region")
     private String region;
 
-    @OneToMany(mappedBy = "distillery", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "distillery")
     private List<Whisky> whiskies;
 
     public Distillery(String name, String region) {
@@ -61,5 +61,10 @@ public class Distillery {
     public void setWhiskies(List<Whisky> whiskies) {
         this.whiskies = whiskies;
     }
+
+    public void addWhisky(Whisky new_whisky) {
+        this.whiskies.add(new_whisky);
+    }
+
 }
 
